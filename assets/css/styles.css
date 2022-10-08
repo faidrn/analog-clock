@@ -1,0 +1,157 @@
+/* General styles */
+
+:root {
+    --main-bg-color: #566573;  /*#1e1f26;*/
+    --main-text-color: #F39C12; /*#ccc;*/
+}
+
+/* Main Structure */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* margin: 0; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background-color: var(--main-bg-color);
+    position: relative;
+    transition: all ease 0.2s;
+}
+
+.container{
+    border-radius: 50%;
+}
+
+.clock {
+    min-height: 18em;
+    min-width: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    background-image: url('../images/clock.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    border: 8px solid #F39C12;
+    transition: all ease 0.2s;
+}
+
+/* hands axis */
+.clock:before {
+    content: "";
+    height: 0.45rem;
+    width: 0.45rem;
+    background-color: var(--main-text-color);
+    border: 2px solid var(--main-bg-color);
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: all ease 0.2s;
+}
+
+.hour,
+.minutes,
+.seconds {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.hour {
+    height: 10em;
+    width: 10em;
+}
+
+.hour:before {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 5px;
+    background-color: var(--main-text-color);
+    border-radius: 6px;
+}
+
+.minutes {
+    height: 12em;
+    width: 12em;
+}
+
+.minutes:before {
+    content: "";
+    height: 50%;
+    width: 3.2px;
+    background-color: var(--main-text-color);
+    border-radius: 4px;
+}
+
+.seconds {
+    height: 13em;
+    width: 13em;
+}
+
+.seconds:before {
+    content: "";
+    height: 60%;
+    width: 2px;
+    background-color: #F4D03F;
+    border-radius: 2px;
+}
+
+/* Shadows */
+.internal-shadow{
+    box-shadow:inset 10px 10px 15px #D0D3D4, 
+            inset -10px -10px 15px #D0D3D4;
+}
+
+.external-shadow{
+    box-shadow: 10px 10px 15px #273746;
+}
+
+/* PIE DE PAGINA */
+.footer{
+    height: 5vh;
+    width: 100%;
+    position: absolute;
+    bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer img{
+    width: 2em;
+    height: 2em;
+}
+
+
+@media (max-width: 640px) {
+    /* El media query se ejecuta desde 0px HASTA 640px */
+    .clock {
+        min-height: 14em;
+        min-width: 14em;
+        background-image: url('../images/clock-respnsive.png');
+    }
+
+    .hour {
+        height: 7em;
+        width: 7em;
+    }
+
+    .minutes {
+        height: 9em;
+        width: 9em;
+    }
+
+    .seconds {
+        height: 10em;
+        width: 10em;
+    }
+}
